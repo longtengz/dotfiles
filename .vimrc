@@ -6,7 +6,16 @@ syntax on
 
 set t_Co=256
 set background=dark
-colorscheme gruvbox
+
+" colorscheme gruvbox
+" colorscheme distinguished
+" colorscheme vividchalk
+" colorscheme flattr
+" colorscheme molokai
+" colorscheme jellybeans " ok
+colorscheme badwolf " kinda coll
+" colorscheme railscasts " great
+" colorscheme miko
 
 set shell=/bin/bash
 
@@ -32,6 +41,7 @@ set incsearch
 " set nowrap
 set laststatus=2 " always show status line
 set cursorline
+set cursorcolumn
 set nu
 
 set ruler
@@ -87,4 +97,3 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 
 autocmd BufWritePre *.tpl :%s/\s\+$//e
 autocmd FileType javascript,css,html autocmd BufWritePre <buffer> :%s/\s\+$//e
-

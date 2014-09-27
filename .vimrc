@@ -74,7 +74,7 @@ let javascript_fold=1
 
 au FileType javascript call JavaScriptFold()
 
-let g:syntastic_js_checkers=['jslint']
+let g:syntastic_js_checkers=['jshint']
 let g:syntastic_css_checkers=['csslint']
 " let g:syntastic_check_on_open=1
 let g:syntastic_enable_signs=1
@@ -90,10 +90,10 @@ let g:ctrlp_jump_to_buffer = 2 " Jump to tab AND buffer if already open
 " let g:ctrlp_split_window = 1 " <CR> = New Tab
 
 " airline
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
+" let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#fnamemod = ':t'
+" let g:airline#extensions#tabline#left_sep = ' '
+" let g:airline#extensions#tabline#left_alt_sep = '|'
 
 autocmd BufWritePre *.tpl :%s/\s\+$//e
 autocmd FileType javascript,css,html autocmd BufWritePre <buffer> :%s/\s\+$//e

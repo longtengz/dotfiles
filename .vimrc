@@ -97,3 +97,27 @@ let g:ctrlp_jump_to_buffer = 2 " Jump to tab AND buffer if already open
 
 autocmd BufWritePre *.tpl :%s/\s\+$//e
 autocmd FileType javascript,css,html autocmd BufWritePre <buffer> :%s/\s\+$//e
+
+" while learning 'learn vim script the hard way'
+"
+" map Ctrl-U in insert mode to make the word uppercase
+" viw   gets us into visual mode, and select the word
+" U     makes the selection in uppercase in visual mode, 
+"           and exits visual mode to normal mode and 
+"           sets cursor to the begining of the word
+" A     gets us in insert mode
+inoremap <c-u> <esc>viwUEli<space>
+
+" open .vimrc
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+" source .vimrc
+nnoremap <leader>sv :source $MYVIMRC<cr>
+
+" quickly back to escape mode (normal mode)
+inoremap jk <esc>
+
+" map escape to no operation to force muscle memorize new mappings to normal mode
+inoremap <esc> <nop>
+
+" Yank this whole line
+nnoremap Y V$y

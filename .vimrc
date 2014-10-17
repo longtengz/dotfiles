@@ -38,11 +38,15 @@ set backspace=indent,eol,start
 set autoindent
 set hlsearch
 set incsearch
-" set nowrap
+set nowrap
 set laststatus=2 " always show status line
 set cursorline
 set cursorcolumn
 set nu
+" using relative number so d motion is easier
+set relativenumber
+
+set smartcase
 
 set ruler
 set history=1000
@@ -69,6 +73,8 @@ set foldlevelstart=2 " Sets `foldlevel` when editing a new buffer
 set foldmethod=syntax " Markers are used to specify folds.
 set foldminlines=0 " Allow folding single lines
 set foldnestmax=3 " Set max fold nesting level
+
+set title
 
 let javascript_fold=1
 
@@ -121,3 +127,21 @@ inoremap <esc> <nop>
 
 " Yank this whole line
 nnoremap Y V$y
+
+iabbrev javscript javascript
+iabbrev destory destroy
+iabbrev cahce cache
+
+nnoremap <leader>td O// TODO<esc>
+
+" NERD Commenter
+let NERDSpaceDelims=1
+let NERDCompactSexyComs=1
+let g:NERDCustomDelimiters = { 'racket': { 'left': ';', 'leftAlt': '#|', 'rightAlt': '|#' } }
+
+" neat split switching
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-H> <C-W>h
+map <C-L> <C-W>l
+

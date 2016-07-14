@@ -1,8 +1,16 @@
 
 # get the right `readlink` that can use the -f option
-if [ "$(uname -s)" = "Darwin" ]; then
-    # on OSX
-    OS="MacOS"
+if [ -n $OS ]; then
+    if [ "$(uname -s)" = "Darwin" ]; then
+        # on OSX
+        export OS="MacOS"
+    else
+        # on Linux
+        export OS="$(uname -s)"
+    fi
+fi
+
+if [ $OS = "MacOS" ]; then
     if [ -n "$(which greadlink)" ]; then
         READLINK_CMD=greadlink
     else
@@ -10,10 +18,10 @@ if [ "$(uname -s)" = "Darwin" ]; then
         return
     fi
 else
-    # on Linux
-    OS="$(uname -s)"
     READLINK_CMD=readlink
 fi
+
+
 
 # source all the bash-related dotfiles
 

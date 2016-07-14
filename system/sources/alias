@@ -1,2 +1,10 @@
-alias ls='ls -G'
+
+# add color to ls
+
+if [ $OS = "MacOS" ]; then
+    alias ls='ls -G'
+else
+    alias ls='ls --color'
+fi
+
 alias ll='ls -l'

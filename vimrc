@@ -62,8 +62,8 @@ let &termencoding=&encoding
 set fileencodings=ucs-bom,utf-8,gbk,cp936,cp950,latin1
 set fileformat=unix
 set encoding=utf-8
-set langmenu=zh_CN.UTF-8
-language message zh_CN.UTF-8
+" set langmenu=zh_CN.UTF-8
+" language message zh_CN.UTF-8
 
 " code foldings
 set foldcolumn=4 " Column to show folds

@@ -1,0 +1,4 @@
+
+function sshru() {
+    ssh "tl505@$1.cs.rutgers.edu"
+}

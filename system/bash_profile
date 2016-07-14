@@ -1,0 +1,8 @@
+# can only be run interactively
+[ -z "$PS1" ] && return
+
+# get all the needed configurations (i.e. path to this repo etc.)
+source ~/.dotfiles_config
+
+source ~/.bashrc
+

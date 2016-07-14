@@ -25,6 +25,11 @@ echo "# configurations of installed dotfiles
 
 " > ~/.dotfiles_config
 
+# materialize all the submodules
+git submodule update --init
+
+# update every submodule
+git submodule foreach git pull origin master
 
 
 

@@ -15,8 +15,8 @@ ln -sv "$REPO_DIR/vimrc" ~/.vimrc
 ln -sv "$REPO_DIR/vim" ~/.vim
 
 #   bash
-ln -sv "$REPO_DIR/bashrc" ~/.bashrc
-ln -sv "$REPO_DIR/bash_profile" ~/.bash_profile
+ln -sv "$REPO_DIR/system/bashrc" ~/.bashrc
+ln -sv "$REPO_DIR/system/bash_profile" ~/.bash_profile
 
 
 echo "# configurations of installed dotfiles

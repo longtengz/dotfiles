@@ -20,6 +20,10 @@ colorscheme deus
 
 set shell=/bin/bash
 
+" use the old regex engine otherwise scrolling ruby files is going to super
+" slow
+set regexpengine=1
+
 
 " Local dirs
 set backupdir=~/.vim/backups

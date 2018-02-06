@@ -19,13 +19,13 @@ ln -sv "$REPO_DIR/system/bashrc" ~/.bashrc
 ln -sv "$REPO_DIR/system/bash_profile" ~/.bash_profile
 
 # source rupa/z
-echo ". $REPO_DIR/tools/z/z.sh" > ~/.bashrc
+echo ". $REPO_DIR/tools/z/z.sh" >> ~/.bashrc
 
 echo "# configurations of installed dotfiles
 
 [ -z \"\$DOTFILES_DIR\" ] && export DOTFILES_DIR=$REPO_DIR
 
-" > ~/.dotfiles_config
+" >> ~/.dotfiles_config
 
 # materialize all the submodules
 git submodule update --init
@@ -42,9 +42,9 @@ brew install the_silver_searcher
 # install universal-ctags
 brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 
-
 # install fzf
 brew install fzf
 $(brew --prefix)/opt/fzf/install
 
-
+# install tmux
+brew install tmux

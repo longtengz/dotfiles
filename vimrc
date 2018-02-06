@@ -88,6 +88,29 @@ let g:syntastic_enable_signs=1
 " let g:syntastic_aggregate_errors=1
 
 
+" Conque-Shell
+nnoremap <leader>ba :ConqueTermSplit bash<cr>
+nnoremap <leader>rb :ConqueTermSplit irb<cr>
+
+" Startify
+nnoremap <leader>ss :SSave<cr>
+
+" fugitive.vim
+nnoremap <leader>gs :Gstatus<cr>
+nnoremap <leader>gb :Gblame<cr>
+nnoremap <leader>gd :Gdiff<cr>
+
+" Tagbar
+nnoremap <leader>tb :TagbarToggle<cr>
+
+" ack.vim and the silver searcher ag
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+cnoreabbrev Ack Ack!
+nnoremap <leader>a :Ack!<Space><c-r><c-w><cr>
+
+
 " CtrlP
 let g:ctrlp_match_window_bottom = 0 " Show at top of window
 let g:ctrlp_working_path_mode = 2 " Smart path mode
@@ -101,8 +124,8 @@ let g:ctrlp_jump_to_buffer = 2 " Jump to tab AND buffer if already open
 " let g:airline#extensions#tabline#left_sep = ' '
 " let g:airline#extensions#tabline#left_alt_sep = '|'
 
-autocmd BufWritePre *.tpl :%s/\s\+$//e
-autocmd FileType javascript,css,html autocmd BufWritePre <buffer> :%s/\s\+$//e
+" autocmd BufWritePre *.tpl :%s/\s\+$//e
+" autocmd FileType javascript,css,html autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 " while learning 'learn vim script the hard way'
 "

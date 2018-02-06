@@ -18,6 +18,8 @@ ln -sv "$REPO_DIR/vim" ~/.vim
 ln -sv "$REPO_DIR/system/bashrc" ~/.bashrc
 ln -sv "$REPO_DIR/system/bash_profile" ~/.bash_profile
 
+# source rupa/z
+echo ". $REPO_DIR/tools/z/z.sh" > ~/.bashrc
 
 echo "# configurations of installed dotfiles
 
@@ -31,9 +33,18 @@ git submodule update --init
 # update every submodule
 git submodule foreach git pull origin master
 
+# install Conque-Shell
+vim -c 'so %' -c 'q' "$REPO_DIR/vim/vimballs/conque_2.3.vmb"
+
+# install the silver searcher ag
+brew install the_silver_searcher
+
+# install universal-ctags
+brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 
 
-
-
+# install fzf
+brew install fzf
+$(brew --prefix)/opt/fzf/install
 
 

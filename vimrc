@@ -13,9 +13,10 @@ set background=dark
 " colorscheme flattr
 " colorscheme molokai
 " colorscheme jellybeans " ok
-colorscheme badwolf " kinda coll
+" colorscheme badwolf " kinda coll
 " colorscheme railscasts " great
 " colorscheme miko
+colorscheme deus
 
 set shell=/bin/bash
 

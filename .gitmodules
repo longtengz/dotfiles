@@ -67,3 +67,6 @@
 [submodule "tools/z"]
 	path = tools/z
 	url = git@github.com:rupa/z.git
+[submodule "vim/bundle/vim-deus"]
+	path = vim/bundle/vim-deus
+	url = git@github.com:ajmwagar/vim-deus.git

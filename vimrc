@@ -66,13 +66,13 @@ set encoding=utf-8
 " language message zh_CN.UTF-8
 
 " code foldings
-set foldcolumn=4 " Column to show folds
-set foldenable
-set foldlevel=2
-set foldlevelstart=2 " Sets `foldlevel` when editing a new buffer
-set foldmethod=syntax " Markers are used to specify folds.
-set foldminlines=0 " Allow folding single lines
-set foldnestmax=3 " Set max fold nesting level
+" set foldcolumn=4 " Column to show folds
+" set foldenable
+" set foldlevel=2
+" set foldlevelstart=2 " Sets `foldlevel` when editing a new buffer
+" set foldmethod=syntax " Markers are used to specify folds.
+" set foldminlines=0 " Allow folding single lines
+" set foldnestmax=3 " Set max fold nesting level
 
 set title
 
@@ -144,4 +144,15 @@ map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-H> <C-W>h
 map <C-L> <C-W>l
+
+" resize panes
+" <slient> sliences the echo of vim
+nnoremap <silent> <Right> :vertical resize -1<cr>
+nnoremap <silent> <Left> :vertical resize +1<cr>
+nnoremap <silent> <Up> :resize +1<cr>
+nnoremap <silent> <Down> :resize -1<cr>
+
+" xnoremap <leader>se S<e>
+" xnoremap <leader>st1 S<t1>
+" xnoremap <leader>st2 S<t2>
 

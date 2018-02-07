@@ -6,3 +6,15 @@ source ~/.dotfiles_config
 
 source ~/.bashrc
 
+# add bash-completion and git-completion
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
+
+
+# source some braze local dev stuff
+source ~/code/braze/appboy-localdev/.profile
+export RBENV_VERSION=${PLATFORM_RUBY_VERSION}; export DOCKER=true; eval "$(rbenv init -)"
+
+# source some braze cluster stuff
+source ~/.braze_profile

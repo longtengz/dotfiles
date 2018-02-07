@@ -43,10 +43,11 @@ set backspace=indent,eol,start
 set autoindent
 set hlsearch
 set incsearch
-set nowrap
+" set nowrap
 set laststatus=2 " always show status line
 set cursorline
 set cursorcolumn
+set colorcolumn=119
 set nu
 " using relative number so d motion is easier
 set relativenumber
@@ -108,6 +109,10 @@ nnoremap <leader>gd :Gdiff<cr>
 " Tagbar
 nnoremap <leader>tb :TagbarToggle<cr>
 
+" ctags
+" open tags in a tab
+nnoremap <leader><C-]> <C-w><C-]><C-w>T
+
 " ack.vim and the silver searcher ag
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
@@ -131,6 +136,9 @@ let g:ctrlp_jump_to_buffer = 2 " Jump to tab AND buffer if already open
 
 " autocmd BufWritePre *.tpl :%s/\s\+$//e
 " autocmd FileType javascript,css,html autocmd BufWritePre <buffer> :%s/\s\+$//e
+
+
+autocmd Filetype ruby setlocal ts=2 sw=2 expandtab
 
 " while learning 'learn vim script the hard way'
 "
@@ -184,3 +192,10 @@ nnoremap <silent> <Down> :resize -1<cr>
 " xnoremap <leader>st1 S<t1>
 " xnoremap <leader>st2 S<t2>
 
+" braze specific stuff
+set tags+=~/code/braze/tags/platform-tags
+
+    " run rspec for the whole file
+nnoremap <leader>tf :Dispatch bundle exec rspec "%:p"<cr>
+    " run rspec for the current line
+nnoremap <leader>tl :Dispatch bundle exec rspec "%:p:"<c-r>=line('.')<cr><cr>

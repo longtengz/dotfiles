@@ -48,3 +48,7 @@ $(brew --prefix)/opt/fzf/install
 
 # install tmux
 brew install tmux
+
+# install git-completion
+curl -o $REPO_DIR/system/git-completion.bash https://github.com/git/git/blob/master/contrib/completion/git-completion.bash
+echo ". $REPO_DIR/system/git-completion.bash" >> ~/.bashrc

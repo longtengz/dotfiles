@@ -1,4 +1,10 @@
+# this is taken from https://github.com/junegunn/fzf/wiki/examples and it needs fzf installation
+fkill() {
+    local pid
+    pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
 
-function sshru() {
-    ssh "tl505@$1.cs.rutgers.edu"
+    if [ "x$pid" != "x" ]
+    then
+        echo $pid | xargs kill -${1:-9}
+    fi
 }

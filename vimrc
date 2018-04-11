@@ -1,5 +1,8 @@
 execute pathogen#infect()
 
+" to get rid of [200~ when pasting into vim in insert mode
+set t_BE=
+
 call pathogen#helptags()
 
 syntax on
@@ -40,6 +43,7 @@ set list listchars=tab:-\ ,trail:~
 set list
 
 set backspace=indent,eol,start
+set smartindent
 set autoindent
 set hlsearch
 set incsearch
@@ -93,6 +97,10 @@ let g:syntastic_enable_signs=1
 " let g:syntastic_auto_loc_list=1
 " let g:syntastic_aggregate_errors=1
 
+" to use fzf in vim
+set rtp+=/usr/local/opt/fzf
+nnoremap <leader>f :FZF ~/code/xxx<cr>
+
 
 " Conque-Shell
 nnoremap <leader>ba :ConqueTermSplit bash<cr>
@@ -115,10 +123,12 @@ nnoremap <leader><C-]> <C-w><C-]><C-w>T
 
 " ack.vim and the silver searcher ag
 if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
+  " let g:ackprg = 'ag --vimgrep --group --ignore=*spec.rb --ignore=*spec_helper.rb'
+  let g:ackprg = 'ag --vimgrep --group'
 endif
 cnoreabbrev Ack Ack!
-nnoremap <leader>a :Ack!<Space><c-r><c-w><cr>
+
+nnoremap <leader>a :Ack!<Space><c-r><c-w> /Users/tenglong/code/xxx<cr>
 
 
 " CtrlP
@@ -138,7 +148,7 @@ let g:ctrlp_jump_to_buffer = 2 " Jump to tab AND buffer if already open
 " autocmd FileType javascript,css,html autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 
-autocmd Filetype ruby setlocal ts=2 sw=2 expandtab
+autocmd Filetype ruby setlocal ts=2 sw=2 softtabstop=2 expandtab
 
 " while learning 'learn vim script the hard way'
 "
@@ -192,10 +202,10 @@ nnoremap <silent> <Down> :resize -1<cr>
 " xnoremap <leader>st1 S<t1>
 " xnoremap <leader>st2 S<t2>
 
-" braze specific stuff
-set tags+=~/code/braze/tags/platform-tags
+" xxx specific stuff
+set tags+=~/code/xxx/tags/platform-tags
 
     " run rspec for the whole file
-nnoremap <leader>tf :Dispatch bundle exec rspec "%:p"<cr>
+nnoremap <leader>tf :Dispatch bundle exec rspec <c-r>=substitute(expand("%:p"), 'xxx', 'xxx', '')<cr><cr>
     " run rspec for the current line
-nnoremap <leader>tl :Dispatch bundle exec rspec "%:p:"<c-r>=line('.')<cr><cr>
+nnoremap <leader>tl :Dispatch bundle exec rspec <c-r>=substitute(expand("%:p"), 'xxx', 'xxx', '')<cr>:<c-r>=line('.')<cr><cr>

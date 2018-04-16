@@ -14,6 +14,10 @@ REPO_DIR=`pwd -P`
 ln -sv "$REPO_DIR/vimrc" ~/.vimrc
 ln -sv "$REPO_DIR/vim" ~/.vim
 
+# set up tmux
+ln -sv "$REPO_DIR/tmux.conf" ~/.tmux.conf
+brew install reattach-to-user-namespace
+
 #   bash
 ln -sv "$REPO_DIR/system/bashrc" ~/.bashrc
 ln -sv "$REPO_DIR/system/bash_profile" ~/.bash_profile

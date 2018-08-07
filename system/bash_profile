@@ -11,10 +11,6 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
 
-
-# source some braze local dev stuff
-source ~/code/braze/appboy-localdev/.profile
-export RBENV_VERSION=${PLATFORM_RUBY_VERSION}; export DOCKER=true; eval "$(rbenv init -)"
-
-# source some braze cluster stuff
-source ~/.braze_profile
+# SPARK_HOME=~/Code/usr/spark-2.0.1-bin-hadoop2.7
+# SCALA_HOME=~/Code/usr/scala-2.12.0
+export PATH="/usr/local/opt/scala@2.11/bin:$PATH"

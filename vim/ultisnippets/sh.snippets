@@ -1,0 +1,23 @@
+snippet forint
+for INDEX in {START..END}
+do
+done
+endsnippet
+
+snippet argarg
+while getopts ":n:m:h" opt; do
+	case ${opt} in
+	n )
+		nvar=$OPTARG
+		;;
+	m )
+		mvar=$OPTARG
+		;;
+	h )
+		echo "Usage:"
+		echo "e.g.:"
+		exit 0
+		;;
+	esac
+done
+endsnippet

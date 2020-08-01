@@ -1,0 +1,16 @@
+snippet argparse
+import argparse
+
+if __name__ == '__main__':
+	parser = argparse.ArgumentParser(
+		description=''
+	)
+
+	parser.add_argument('-i', '--imagedirs', nargs='+', type=str)
+	parser.add_argument('-t', '--train', type=int)
+	parser.add_argument('-f', '--feature', action='store_true')
+
+	args = vars(parser.parse_args())
+
+	args['imagedirs'], args['train']
+endsnippet

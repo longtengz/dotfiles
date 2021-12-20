@@ -1,11 +1,53 @@
-#! /bin/bash
-
 # deploy my dotfiles to this environment
 
 REPO_DIR=`pwd -P`
 
-# echo $REPO_DIR
+echo $REPO_DIR
 
+# ========================================================= install =========================================================
+# install (
+# 	ohmyzsh
+# 	brew
+#   coreutils
+#	tmux
+# 	fzf
+#	ag
+#	bat
+#   mosh	
+# )
+
+# ohmyzsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# brew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# coreutils
+brew install coreutils
+
+# tmux
+brew install tmux
+
+# fzf
+brew install fzf
+$(brew --prefix)/opt/fzf/install
+
+# ag
+brew install the_silver_searcher
+
+# bat
+brew install bat
+
+# mosh
+brew install mosh
+
+# materialize all the submodules
+git submodule update --init
+
+# update every submodule
+git submodule foreach git pull origin master
+
+# ========================================================= configs =========================================================
 
 # create symlinks
 # so any changes could go straight to the this git repo
@@ -16,43 +58,16 @@ ln -sv "$REPO_DIR/vim" ~/.vim
 
 # set up tmux
 ln -sv "$REPO_DIR/tmux.conf" ~/.tmux.conf
-brew install reattach-to-user-namespace
 
-#   bash
-ln -sv "$REPO_DIR/system/bashrc" ~/.bashrc
-ln -sv "$REPO_DIR/system/bash_profile" ~/.bash_profile
+# zsh
+ln -sv "$REPO_DIR/system/zshrc" ~/.zshrc
+ln -sv "$REPO_DIR/system/zprofile" ~/.zprofile
 
 # source rupa/z
-echo ". $REPO_DIR/tools/z/z.sh" >> ~/.bashrc
+echo ". $REPO_DIR/tools/z/z.sh" >> ~/.zshrc
 
 echo "# configurations of installed dotfiles
 
 [ -z \"\$DOTFILES_DIR\" ] && export DOTFILES_DIR=$REPO_DIR
 
 " >> ~/.dotfiles_config
-
-# materialize all the submodules
-git submodule update --init
-
-# update every submodule
-git submodule foreach git pull origin master
-
-# install Conque-Shell
-vim -c 'so %' -c 'q' "$REPO_DIR/vim/vimballs/conque_2.3.vmb"
-
-# install the silver searcher ag
-brew install the_silver_searcher
-
-# install universal-ctags
-brew install --HEAD universal-ctags/universal-ctags/universal-ctags
-
-# install fzf
-brew install fzf
-$(brew --prefix)/opt/fzf/install
-
-# install tmux
-brew install tmux
-
-# install git-completion
-curl -o $REPO_DIR/system/git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
-echo ". $REPO_DIR/system/git-completion.bash" >> ~/.bashrc

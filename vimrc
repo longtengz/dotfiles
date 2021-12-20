@@ -7,12 +7,20 @@ call pathogen#helptags()
 
 syntax on
 set term=screen-256color
-set background=dark
 set t_Co=256
+
+if exists('+termguicolors')
+    let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+    set termguicolors
+endif
+
+set background=dark
 
 set path+=**
 
-" colorscheme gruvbox
+let g:gruvbox_contrast_dark = 'hard'
+colorscheme gruvbox
 " colorscheme distinguished
 " colorscheme vividchalk
 " colorscheme flattr
@@ -21,7 +29,7 @@ set path+=**
 " colorscheme badwolf " kinda coll
 " colorscheme railscasts " great
 " colorscheme miko
-colorscheme deus
+" colorscheme deus
 
  set shell=/bin/bash
 
@@ -71,7 +79,7 @@ colorscheme deus
 
  " file encoding and language settings
  let &termencoding=&encoding
- set fileencodings=ucs-bom,utf-8,gbk,cp936,cp950,latin1
+ " set fileencodings=ucs-bom,utf-8,gbk,cp936,cp950,latin1
  set fileformat=unix
  set encoding=utf-8
  " set langmenu=zh_CN.UTF-8
@@ -87,6 +95,7 @@ colorscheme deus
  set foldnestmax=3 " Set max fold nesting level
 
  set title
+
 
  " let javascript_fold=1
  " au FileType javascript call JavaScriptFold()
@@ -142,7 +151,7 @@ nnoremap <leader>af :ALEFix<cr>
  cnoreabbrev Ack Ack!
 
  " nnoremap <leader>ak :Ack!<Space><c-r><c-w> /home/teng/repos/alexeyab_darknet/<cr>
- nnoremap <leader>ak :Ack!<Space><c-r><c-w> /archive/teng/board/nnie_cv/<cr>
+ nnoremap <leader>ak :Ack!<Space><c-r><c-w> /Users/Teng/code/ <cr>
 
 
  " CtrlP
@@ -164,18 +173,21 @@ nnoremap <leader>af :ALEFix<cr>
 
 
  " UltiSnips
- let g:UltiSnipsSnippetsDir="~/.vim/ultisnippets"
- let g:UltiSnipsSnippetDirectories=["~/.vim/ultisnippets"]
- let g:UltiSnipsEditSplit="vertical"
- let g:UltiSnipsExpandTrigger="<tab>"
- " let g:UltiSnipsJumpForwardTrigger="<c-b>"
- " let g:UltiSnipsJumpBackwardTrigger="<c-z>"
- nmap <leader>ue :UltiSnipsEdit<cr>
+ " let g:UltiSnipsSnippetsDir="~/.vim/ultisnippets"
+ " let g:UltiSnipsSnippetDirectories=["~/.vim/ultisnippets"]
+ " let g:UltiSnipsEditSplit="vertical"
+ " let g:UltiSnipsExpandTrigger="<tab>"
+ " " let g:UltiSnipsJumpForwardTrigger="<c-b>"
+ " " let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+ " nmap <leader>ue :UltiSnipsEdit<cr>
 
 
  autocmd Filetype ruby setlocal ts=2 sw=2 softtabstop=2 expandtab
  autocmd Filetype cpp setlocal ts=2 sw=2 softtabstop=2 expandtab
  autocmd Filetype c setlocal ts=2 sw=2 softtabstop=2 expandtab
+ autocmd Filetype vue setlocal ts=2 sw=2 softtabstop=2 expandtab
+ autocmd Filetype javascript setlocal ts=2 sw=2 softtabstop=2 expandtab
+ " autocmd BufRead,BufNewFile *.vue setfiletype html
 
  " while learning 'learn vim script the hard way'
  "

@@ -62,9 +62,9 @@ hs.hotkey.bind({'ctrl'}, '5', function ()
 end)
 
 -- Hide kitty if not in focus
-hs.window.filter.default:subscribe(hs.window.filter.windowFocused, function(window, appName)
-  local kitty = hs.application.get('kitty')
-  if kitty ~= nil then
-     kitty:hide()
-  end
-end)
+-- hs.window.filter.default:subscribe(hs.window.filter.windowFocused, function(window, appName)
+  -- local kitty = hs.application.get('kitty')
+  -- if kitty ~= nil then
+     -- kitty:hide()
+  -- end
+-- end)

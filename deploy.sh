@@ -13,7 +13,8 @@ echo $REPO_DIR
 # 	fzf
 #	ag
 #	bat
-#   mosh	
+#   mosh
+#   hammerspoon
 # )
 
 # ohmyzsh
@@ -40,6 +41,9 @@ brew install bat
 
 # mosh
 brew install mosh
+
+# hammerspoon
+brew install --cask hammerspoon
 
 # materialize all the submodules
 git submodule update --init

@@ -15,6 +15,8 @@ echo $REPO_DIR
 #	bat
 #   mosh
 #   hammerspoon
+#   htop
+#   zsh-syntax-highlighting
 # )
 
 # ohmyzsh
@@ -31,7 +33,6 @@ brew install tmux
 
 # fzf
 brew install fzf
-$(brew --prefix)/opt/fzf/install
 
 # ag
 brew install the_silver_searcher
@@ -44,6 +45,12 @@ brew install mosh
 
 # hammerspoon
 brew install --cask hammerspoon
+
+# htop
+brew install htop
+
+# zsh-syntax-highlighting
+brew install zsh-syntax-highlighting
 
 # materialize all the submodules
 git submodule update --init
@@ -67,11 +74,15 @@ ln -sv "$REPO_DIR/tmux.conf" ~/.tmux.conf
 ln -sv "$REPO_DIR/system/zshrc" ~/.zshrc
 ln -sv "$REPO_DIR/system/zprofile" ~/.zprofile
 
-# source rupa/z
-echo ". $REPO_DIR/tools/z/z.sh" >> ~/.zshrc
 
 echo "# configurations of installed dotfiles
 
 [ -z \"\$DOTFILES_DIR\" ] && export DOTFILES_DIR=$REPO_DIR
 
 " >> ~/.dotfiles_config
+
+# ======================= append to zshrc ====================
+$(brew --prefix)/opt/fzf/install
+echo ". /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ~/.zshrc
+# source rupa/z
+echo ". $REPO_DIR/tools/z/z.sh" >> ~/.zshrc
